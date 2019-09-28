@@ -1,20 +1,24 @@
-import { NgModule } from "@angular/core";
-import { Routes, RouterModule } from "@angular/router";
-import { MenuComponent } from "./menu/menu/menu.component";
-import { LoginComponent } from "./login/login.component";
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { LayoutComponent } from './layout/layout/layout.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   {
-    path: "login",
+    path: 'login',
     component: LoginComponent
   },
   {
-    path: "",
-    component: MenuComponent,
+    path: '',
+    component: LayoutComponent,
     children: [
       {
-        path: "restaurant",
-        loadChildren: "./restaurant/restaurant.module#RestaurantModule"
+        path: 'restaurant',
+        loadChildren: './restaurant/restaurant.module#RestaurantModule'
+      },
+      {
+        path: 'category',
+        loadChildren: './category/category.module#CategoryModule'
       }
     ]
   }
